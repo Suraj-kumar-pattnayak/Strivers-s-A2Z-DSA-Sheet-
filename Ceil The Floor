@@ -1,0 +1,24 @@
+class Solution {
+  public:
+    vector<int> getFloorAndCeil(int x, vector<int> &v) {
+        // code here
+    int f = INT_MIN;
+    int c = INT_MAX;
+    for(int i =0; i< v.size(); i++)
+    {
+        if(v[i] <= x and v[i] > f) f = v[i];
+        
+        if(v[i] >= x and v[i] < c) c = v[i];
+        
+    }
+    
+    if ( f == INT_MIN) f = -1;
+    if ( c == INT_MAX) c = -1;
+    
+    vector<int> ans;
+    ans.push_back(f);
+    ans.push_back(c);
+    
+    return ans;
+    }
+};
