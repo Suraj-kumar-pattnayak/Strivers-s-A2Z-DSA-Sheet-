@@ -1,0 +1,14 @@
+class Solution:
+    def maxNumberOfBalloons(self, text: str) -> int:
+        h = {}
+        balloon = 'balloon'
+        for l in text:
+            if l in h:
+                h[l] += 1
+            else:
+                h[l] = 1
+
+        if any( l not in h for l in balloon):
+            return 0
+        else:
+            return min(h['b'], h['a'], h['l']//2, h['o']//2, h['n'])
