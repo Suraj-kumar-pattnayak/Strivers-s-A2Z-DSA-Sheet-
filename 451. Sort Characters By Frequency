@@ -1,0 +1,21 @@
+class Solution:
+    def frequencySort(self, s: str) -> str:
+      h = {}
+      for c in s:
+        if c in h:
+          h[c] += 1
+        else:
+          h[c] = 1
+      #sort the hash by value in desc
+      h= sorted(h.items(), key=lambda x: x[1], reverse=True)
+
+      s = ""
+      for value, freq in h:
+          s += value*freq
+
+      
+      return s
+
+      
+        
+        
