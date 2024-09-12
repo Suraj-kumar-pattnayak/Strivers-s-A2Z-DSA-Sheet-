@@ -1,0 +1,16 @@
+class Solution:
+    def minBitFlips(self, start: int, goal: int) -> int:
+
+      a, b = str(bin(start))[2:],  str(bin(goal))[2:]
+
+      max_len = max(len(a), len(b))
+      a = a.zfill(max_len)
+      b = b.zfill(max_len)
+
+      steps = 0
+      for c in range(len(a)):
+        if a[c] != b[c]:
+          steps += 1
+
+      return steps
+        
