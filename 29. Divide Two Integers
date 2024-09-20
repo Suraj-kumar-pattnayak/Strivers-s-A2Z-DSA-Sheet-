@@ -1,0 +1,19 @@
+class Solution:
+    def divide(self, dividend: int, divisor: int) -> int:
+      d, div = abs(dividend), abs(divisor)
+      cnt = 0
+      while d >= div:
+        tmp = div
+        mul = 1
+        while d >= tmp:
+          d -= tmp
+          cnt += mul
+          mul += mul
+          tmp += tmp
+      
+      if (dividend < 0 and divisor >= 0) or (divisor < 0 and dividend >= 0):
+        cnt = -cnt
+
+      return min(2147483647, max(-2147483648, cnt))
+
+        
